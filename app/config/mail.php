@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => null, 'name' => null),
+	'from' => array('address' => 'yule@trht.com.cn', 'name' => 'TA'),
 
 	/*
 	|--------------------------------------------------------------------------

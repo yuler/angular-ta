@@ -1,11 +1,25 @@
 #navigation
-	background: white	
-	border-bottom: 1px color-theme solid
-	list-style: none
-	width 100%
-	li  
-		display: -webkit-inline-box
-		width 20%
-		padding: 15px
-		a
-			width: 200px
+	position: fixed;
+	z-index: 10;
+	right: 0;
+	left: 0;
+	top: 0;
+	border-bottom: 1px color-line solid
+	background-color: color-background
+	a:last-child
+		float right
+	a:hover
+		background-color: color-theme
+		color:white
+	a:visited,a.active
+		background-color: color-theme
+		webkit-box-shadow: inset 0 0 15px color-theme-shadow;
+		-moz-box-shadow: inset 0 0 15px color-theme-shadow;
+		box-shadow: inset 0 0 15px color-theme-shadow;
+	a.after
+		clear: both
+	a
+		float: left
+		display: inline-block
+		text-align: center
+		padding: 15px 25px

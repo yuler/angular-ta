@@ -1,4 +1,23 @@
+// @import 'nib'
 global-reset()
+
+//color
+//daytime
+color-line = #cccccc
+color-background = white
+color-font = #555555
+color-font-hover = #008cff
+color-theme = #00e0ff
+color-theme-shadow = #0399ad
+
+//night
+// color-line = #bbbbbb
+// color-background = #555555
+// color-font = #bbbbbb
+// color-font-hover = white
+// color-theme = #2E2E2E
+// color-theme-shadow = #000000
+
 @import "_base/variable"
 @import "_base/common"
 
@@ -8,15 +27,12 @@ global-reset()
 // @import "_partial/container"
 
 // @import "_view/index"
-// @import "_view/login"
-// @import "_view/register"
-// @import "_view/forget"
-// @import "_view/invite"
-// @import "_view/setting"
-// @import "_view/topicIndex"
-// @import "_view/topicCreate"
-// @import "_view/topicShow"
-// @import "_view/unitShow"
-
-
-
+@import "_views/login"
+@import "_views/register"
+@import "_views/forget"
+// @import "_views/invite"
+// @import "_views/setting"
+// @import "_views/topicIndex"
+// @import "_views/topicCreate"
+// @import "_views/topicShow"
+// @import "_views/unitShow"

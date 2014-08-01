@@ -1,0 +1,32 @@
+<div id="register" ng-hide="fake" class="animated fadeIn">
+	<form ng-submit="postRegister()">
+		<h1>账号注册</h1>
+		<div class="input-wrapper">
+			<div class="input-group">
+				<input type="text" ng-model="user.first_name" placeholder="姓氏" focus-me="true"
+				 tipsy-s title="姓氏">
+				 <input type="text" ng-model="user.last_name" placeholder="名称" 
+				 tipsy-s title="名称">
+			 </div>
+		</div>
+		<div class="input-wrapper">
+			<input type="email" ng-model="user.email" placeholder="请输入邮箱地址"  
+			 tipsy-s title="请输入邮箱地址">
+			</div>
+		<div class="input-wrapper">
+			<input type="password" ng-model="user.password" placeholder="请输入密码" 
+			 tipsy-s title="请输入密码">
+		</div>
+		<div style="margin-top:30px;">
+			<a href="javascript:void(0);" ng-click="login()">
+				<i class="fa fa-hand-o-left"></i>&nbsp;&nbsp;已存在账号？直接登录</a>
+			&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="javascript:void(0);" ng-click="forget()"><i class="fa fa-envelope"></i>&nbsp;&nbsp;找回密码?</a>
+		</div>
+		<div class="input-wrapper">
+			<button type="submit"
+			class="button button-rounded button-large glow button-flat button-primary button-block">注册</button>
+		</div>
+	</form>
+
+</div>

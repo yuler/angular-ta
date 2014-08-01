@@ -1,5 +1,6 @@
 var express = require('express');
 var stylus  = require('stylus');
+var nib = require('nib');
 
 var app = express();
 
@@ -10,7 +11,8 @@ app.use(stylus.middleware({
       return stylus(str)
         .set('filename', path)
         .set('warn', true)
-        .set('compress', true);
+        .set('compress', true)
+        .use(nib());
     }
 }));
 

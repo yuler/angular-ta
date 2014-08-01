@@ -1,14 +1,58 @@
-html,body
-	padding: 0
+html,body,input,button
 	margin: 0
-	width 100%
-	.container
-		padding: 100px 0
-		width: 768px
-		margin: 0 auto;
+	background-color: color-background
+	color color-font
+	font-family: font-default
+	font-size: font-size
+	line-height: line-height
+.container
+	padding: 100px 10px
+	width: auto
+	margin: 0 auto;
+	@media phone
+		padding: 100px 0px
+		width 700px;
 .float-left
 	float left
 .float-right
 	float right
 a
-	color black
+	color color-font
+	text-decoration: none
+a.active,a:hover
+	color color-font-hover
+label:hover
+	cursor: pointer
+	
+.fade.ng-hide-add,.fade.ng-hide-remove
+	-webkit-transition all linear 0.5s
+	-moz-transition all linear 0.5s
+	-o-transition all linear 0.5s
+	transition all linear 0.5s
+	display:block!important;  
+.fade.ng-hide-add.ng-hide-add-active,.fade.ng-hide-remove
+	opacity 0
+.fade.ng-hide-add,.fade.ng-hide-remove.ng-hide-remove-active
+	opacity 1
+
+// 修改slidebar 插件样式
+#sb-site
+	background: color-background
+// #sb-site
+// 	padding 50px 0 50px 0
+.sb-slidebar
+	background-color: color-background
+.sb-left,.sb-right
+	width 100%;
+	@media phone
+		width 400px;
+	padding 70px 30px
+.sb-left
+	border-right: 1px color-line solid
+.sb-right
+	border-left: 1px color-line solid
+
+// 修改button样式
+.button-large{
+	padding 10px 25px
+}

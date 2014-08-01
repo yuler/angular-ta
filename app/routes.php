@@ -13,5 +13,13 @@
 
 Route::get('/', function()
 {
-	return View::make('home');
+	return View::make('index');
 });
+
+Route::post('/login', array('as' => 'site.login.post', function() { return View::make('site.login'); }));
+
+
+
+//cookie
+Route::controller('cookies', 'CookieController');
+Route::controller('users', 'UserController');

@@ -1,6 +1,6 @@
 <?php
 
-class HomeController extends BaseController {
+class CookieController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -15,9 +15,14 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
-	{
-		return View::make('hello');
+	public function getTheme(){
+		return Cookie::get('theme');
 	}
 
+	public function putTheme()
+	{
+		$theme = Input::get('theme');
+		Cookie::queue('theme', $theme ,2628000);
+		return $theme;
+	}
 }
