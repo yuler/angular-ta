@@ -1,5 +1,5 @@
 <div id="forget" ng-hide="fake" class="animated fadeIn">
-	<form ng-submit="forget()">
+	<form ng-submit="postForget()">
 		<h1>找回密码</h1>
 		<br>
 		<div class="input-wrapper">
@@ -7,11 +7,11 @@
 			tipsy-s title="请输入邮箱地址">
 		</div>
 		<div class="input-wrapper">
-			<a href="javascript:history.go(-1);"  
-			  class="button button-rounded button-large glow button-flat button-primary button-block"><i class="fa fa-envelope"></i>&nbsp;&nbsp;发送重置密码邮件</a>
+			<button type="submit"  
+			  class="button button-rounded button-large glow button-flat button-primary button-block"><i class="fa fa-envelope"></i>&nbsp;&nbsp;发送重置密码邮件</button>
 		</div>
 		<div class="input-wrapper" style="text-align:right">
-			<a type="submit" href="javascript:history.go(-1);"
+			<a href="javascript:history.go(-1);"
 			  class="button-rounded button-large glow button-flat"><i class="fa fa-hand-o-left"></i>&nbsp;&nbsp;返回</a>
 		</div>
 	</form>

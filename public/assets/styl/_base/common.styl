@@ -8,13 +8,21 @@ html,body,input,button
 .container
 	padding: 0 10px
 	width: auto
-	margin: 100px auto 0 auto
+	margin: 57px auto 50px auto
 	@media phone
-		width 700px;
-.float-left
-	float left
-.float-right
-	float right
+		width 768px;
+
+#index,#login,#register,#forget,#resetPassword
+	padding 15px 0px
+	@media phone
+		padding 50px 0px
+#user_edit
+	margin-top 15px + 57px 
+	@media phone
+		margin-top 50px + 57px
+		padding: 50px 0px
+		box-shadow: rgb(153, 153, 153) 0px 0px 15px 0px;
+		border-radius: 5px;
 a
 	color color-font
 	text-decoration: none
@@ -41,8 +49,6 @@ input[disabled]
 // 修改slidebar 插件样式
 #sb-site
 	background: color-background
-// #sb-site
-// 	padding 50px 0 50px 0
 .sb-slidebar
 	background-color: color-background
 .sb-left,.sb-right
@@ -59,3 +65,7 @@ input[disabled]
 .button-large{
 	padding 10px 25px
 }
+
+// 修改 toast 样式
+#toast-container
+	padding-top 200px;

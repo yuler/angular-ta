@@ -79,24 +79,35 @@
 		// 设置提示信息
 		toastr.options = {
 		  "closeButton": false,
-		  "positionClass": "toast-top-full-width",
+		  "positionClass": "toast-bottom-full-width",
 		  "onclick": null,
 		  "timeOut": "5000",
 		  "extendedTimeOut": "1000",
 		  "showMethod": "slideDown",
 		  "hideMethod": "slideUp"
 		}
-		// function tipMsg(data){
-		// 	if(data.type == 'success'){
-		// 		toastr.success(data.message,'信息提示');
-		// 	}else if(data.type == 'info'){
-		// 		toastr.info(data.message,'信息提示');
-		// 	}else if(data.type == 'warning'){
-		// 		toastr.warning(data.message,'信息提示');
-		// 	}else if(data.type == 'error'){
-		// 		toastr.error(data.message,'信息提示');
-		// 	}
-		// }
+		function tipMsg(data){
+			if(data.type == 'success'){
+				toastr.success(data.message,'信息提示');
+			}else if(data.type == 'info'){
+				toastr.info(data.message,'信息提示');
+			}else if(data.type == 'warning'){
+				toastr.warning(data.message,'信息提示');
+			}else if(data.type == 'error'){
+				toastr.error(data.message,'信息提示');
+			}
+		}
+
+		//重定向的时候提示信息。
+		var message = "{{Session::get('message')}}";
+		var type = "{{Session::get('type')}}";
+		setTimeout(function(){
+			tipMsg({'message':message,'type':type});
+		},1000);
+		
+		//重置密码
+		var id = "{{Session::get('user')['id']}}"
+		var resetPasswordCode = "{{Session::get('user')['resetPasswordCode']}}";
 		// toastr.success('Have fun storming the castle!', 'Miracle Max Says');
 	});
 

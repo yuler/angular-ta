@@ -60,7 +60,7 @@ angular.module('controllers',[
 })
 
 //用户验证的控制器，登录，注册，重置密码。
-.controller('UserCtrl',function($scope,$http,$location,$timeout,cfpLoadingBar,UserServices){
+.controller('UserCtrl',function($scope,$http,$location,$routeParams,$timeout,cfpLoadingBar,UserServices){
 	$scope.login = function(){
 		$location.path('/login');
 	};
@@ -85,10 +85,45 @@ angular.module('controllers',[
 		UserServices.register($scope.user,
 			function(data){
 				tipMsg(data);
+				$location.path('/login');
+			},
+			function(error){
+				tipMsg(error.data);
+				console.log(error);
+			}
+		);
+	}
+
+	$scope.postForget = function(){
+		UserServices.forget($scope.user,
+			function(data){
+				tipMsg(data);
 				// $location.path('/login');
 			},
 			function(error){
 				tipMsg(error.data);
+				console.log(error);
+			}
+		);
+	}
+
+	$scope.resetPassowrdInit = function(){
+		$scope.user = {'id':$routeParams.id,'resetPasswordCode':$routeParams.resetPasswordCode};
+		if(!$scope.user.id || !$scope.user.resetPasswordCode){
+			$location.path('/login');
+			tipMsg({'message':'无效的链接地址','type':'warning'});
+		}
+	}
+
+	$scope.postResetPassword = function(){
+		UserServices.resetPassword($scope.user,
+			function(data){
+				tipMsg(data);
+				$location.path('/login');
+			},
+			function(error){
+				tipMsg(error.data);
+				console.log(error);
 			}
 		);
 	}

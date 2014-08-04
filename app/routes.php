@@ -11,15 +11,15 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
+Route::get('/', array('as' => 'site.index', function() {return View::make('index'); }));
 
-Route::post('/login', array('as' => 'site.login.post', function() { return View::make('site.login'); }));
-
-
+// Route::get('/activate/{activationCode}',array('as' => 'site.activate','uses' => 'UserController@activate'));
 
 //cookie
 Route::controller('cookies', 'CookieController');
 Route::controller('users', 'UserController');
+
+
+//邮件模板测试
+
+Route::get('/mail',function(){ return View::make('mail'); });

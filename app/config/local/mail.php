@@ -1,7 +1,6 @@
 <?php
 
 return array(
-
 	/*
 	|--------------------------------------------------------------------------
 	| Mail Driver
@@ -14,12 +13,11 @@ return array(
 	| Supported: "smtp", "mail", "sendmail", "mailgun", "mandrill", "log"
 	|
 	*/
-	'host'       => 'smtp.exmail.qq.com',
-	'port'       => 465,
-	// 'from.address' => 'yule@trht.com.cn',
-	// 'from.name'  => 'TA',
-	'encryption' => 'ssl',
-	'username'   => 'yule@trht.com.cn',
-	'password'   => '123456a',
 
+	'host'       => $_ENV['email.host'],
+	'port'       => $_ENV['email.port'],
+	'from'       => array('address' => $_ENV['email.from.address'], 'name' => $_ENV['email.from.name']),
+	'encryption' => $_ENV['email.encryption'],
+	'username'   => $_ENV['email.username'],
+	'password'   => $_ENV['email.password'],
 );

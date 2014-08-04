@@ -55,6 +55,8 @@ angular.module('services', ['ngResource'])
     return $resource('/users/:id', {},{
     	login :{url:'/users/login',method:'post'},
     	register :{url:'/users/register',method:'post'},
+    	forget :{url:'/users/forget',method:'post'},
+    	resetPassword :{url:'/users/reset-password',method:'post'},
     	index : {method:'GET'},
     	show : {method:'GET'},
 		store : {method:'POST', params:{entryId:''}, isArray:true},

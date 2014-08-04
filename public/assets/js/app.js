@@ -33,6 +33,10 @@ angular.module('siteApp', [
       controller:'UserCtrl',
       templateUrl:'templates/forget.html',
     })
+    .when('/resetPassword',{
+      controller:'UserCtrl',
+      templateUrl:'templates/resetPassword.html',
+    })
     .when('/topics',{
       controller:'TopicCtrl',
       templateUrl:'templates/topics/index.html',

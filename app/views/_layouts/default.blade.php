@@ -13,9 +13,10 @@
 </head>
 <body>
 	
-	@include('_partials/navigation')
 	
 	<div id="sb-site" >
+		@include('_partials/navigation')
+		
 		<div ng-view class="container"></div>
 
 		@include('_partials/footer')
