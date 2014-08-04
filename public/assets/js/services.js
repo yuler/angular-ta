@@ -57,6 +57,8 @@ angular.module('services', ['ngResource'])
     	register :{url:'/users/register',method:'post'},
     	forget :{url:'/users/forget',method:'post'},
     	resetPassword :{url:'/users/reset-password',method:'post'},
+    	currentUser:{url:'/users/current-user',method:'get'},
+    	edit : {method:'get'},
     	index : {method:'GET'},
     	show : {method:'GET'},
 		store : {method:'POST', params:{entryId:''}, isArray:true},

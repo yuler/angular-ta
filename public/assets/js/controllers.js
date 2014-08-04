@@ -61,10 +61,10 @@ angular.module('controllers',[
 
 //用户验证的控制器，登录，注册，重置密码。
 .controller('UserCtrl',function($scope,$http,$location,$routeParams,$timeout,cfpLoadingBar,UserServices){
+	//登陆连接和登陆
 	$scope.login = function(){
 		$location.path('/login');
 	};
-
 	$scope.postLogin = function(){
 		UserServices.login($scope.user,
 			function(data){
@@ -76,11 +76,10 @@ angular.module('controllers',[
 			}
 		);
 	};
-
+	//注册连接和注册
 	$scope.register = function(){
 		$location.path('/register');
 	}
-
 	$scope.postRegister = function(){
 		UserServices.register($scope.user,
 			function(data){
@@ -93,12 +92,15 @@ angular.module('controllers',[
 			}
 		);
 	}
-
+	//忘记密码连接和发送重置密码邮件
+	$scope.forget = function(){
+		$location.path('/forget');
+	}
 	$scope.postForget = function(){
 		UserServices.forget($scope.user,
 			function(data){
 				tipMsg(data);
-				// $location.path('/login');
+				$location.path('/login');
 			},
 			function(error){
 				tipMsg(error.data);
@@ -106,7 +108,7 @@ angular.module('controllers',[
 			}
 		);
 	}
-
+	//重置密码页面初始化，重置密码
 	$scope.resetPassowrdInit = function(){
 		$scope.user = {'id':$routeParams.id,'resetPasswordCode':$routeParams.resetPasswordCode};
 		if(!$scope.user.id || !$scope.user.resetPasswordCode){
@@ -114,7 +116,6 @@ angular.module('controllers',[
 			tipMsg({'message':'无效的链接地址','type':'warning'});
 		}
 	}
-
 	$scope.postResetPassword = function(){
 		UserServices.resetPassword($scope.user,
 			function(data){
@@ -128,13 +129,24 @@ angular.module('controllers',[
 		);
 	}
 
+	//个人设置
+	$scope.edit = function(){
+		UserServices.currentUser(
+			function(data){
+				$scope.user = data;
+			},
+			function(error){
+				tipMsg(error.data);
+				console.log(error);
+			}
+		);
+	}
+	//上传头像
 	$scope.uploadAvatar = function(){
 		alert($scope.avatar);
 	}
 
-	$scope.forget = function(){
-		$location.path('/forget');
-	}
+
 
 	$scope.start = function() {
 	  cfpLoadingBar.start();

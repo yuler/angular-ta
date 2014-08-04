@@ -1,4 +1,4 @@
-<div id="user_edit" ng-hide="fake" class="animated fadeIn">
+<div id="user_edit" ng-hide="fake" class="animated fadeIn" data-ng-init="edit()">
 	<form ng-submit="postLogin()">
 		<h1><i class="fa fa-cogs"></i>&nbsp;&nbsp;个人设置</h1>
 		<br>
@@ -20,19 +20,26 @@
 			 </div>
 		</div>
 		<div class="input-wrapper">
-			<label for="first_name"><h4>邮箱地址</h4></label>
-			<input type="email" ng-model="user.email" placeholder="请输入邮箱地址"
+			<label for="email"><h4>邮箱地址</h4></label>
+			<input id="email" type="email" ng-model="user.email" placeholder="请输入邮箱地址"
 			tipsy-s title="请输入邮箱地址" disabled>
 		</div>
 		<div class="input-wrapper">
-			<label for="first_name"><h4>昵称</h4></label>
-			<input type="password" ng-model="user.password" placeholder="请输入密码" 
-			ng-init="user.password='123'">
+			<label for="password"><h4>密码</h4></label>
+			<input id="password" type="email" ng-model="user.email" placeholder="密码"
+			tipsy-s title="密码" disabled>
 		</div>
 		<div class="input-wrapper">
-			<label for="first_name"><h4>密码</h4></label>
-			<input type="email" ng-model="user.email" placeholder="请输入邮箱地址"
-			tipsy-s title="请输入邮箱地址" disabled>
+			<label for="password"><h4>昵称</h4></label>
+			<input id="password" type="password" ng-model="user.password" placeholder="请输入密码" >
+		</div>
+		<div class="input-wrapper">
+			<label for="password"><h4>个性签名</h4></label>
+			<input id="password" type="password" ng-model="user.password" placeholder="请输入密码" >
+		</div>
+		<div class="input-wrapper">
+			<label for="description"><h4>个人简介</h4></label>
+			<textarea id="description" ng-model="user.password" placeholder="个人简介"></textarea>
 		</div>
 		<div class="input-wrapper">
 			<button type="submit"

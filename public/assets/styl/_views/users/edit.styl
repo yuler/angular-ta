@@ -16,7 +16,7 @@
 						width 250px - 26px - 10px
 				input:last-child
 					margin-left: 14px
-			input
+			input,textarea
 				width 300px - 26px
 				@media phone
 					width 500px - 26px
@@ -26,7 +26,10 @@
 				outline none
 				border color-line 1px solid
 				border-radius 4px
-			input:focus
+			textarea
+				height 200px
+				font-family font-default
+			input:focus,textarea:focus
 				border #66afe9 1px solid
 				outline none
 				-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);

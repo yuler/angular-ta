@@ -84,6 +84,7 @@ class UserController extends BaseController {
 		}catch (Cartalyst\Sentry\Users\UserExistsException $e){
 		    return Response::json(array('message'=>'邮箱地址已注册过','type'=>'error'),500);
 		}catch (Exception $e){
+			return $e;
 			return Response::json(array('message'=>'服务器错误','type'=>'error'),500);
 		}
 		
@@ -168,6 +169,7 @@ class UserController extends BaseController {
 		}
 	}
 
+	//重置密码
 	public function postResetPassword(){
 		try{
 		    $id = Input::get('id');
@@ -191,10 +193,27 @@ class UserController extends BaseController {
 				$type = 'error';
 	            return Response::json(array('message'=>$message,'type'=>$type),500);
 		    }
-		} catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
+		}catch (Cartalyst\Sentry\Users\UserNotFoundException $e) {
 		    $message ='密码修改失败';
 			$type = 'error';
 			return Response::json(array('message'=>$message,'type'=>$type),500);
+		}catch (Exception $e){
+			return Response::json(array('message'=>'服务器错误','type'=>'error'),500);
+		}
+	}
+
+	//获取当前User
+	public function getCurrentUser(){
+		try
+		{
+		    $user = Sentry::getUser();
+		    return Response::json($user);
+		}catch (Cartalyst\Sentry\Users\UserNotFoundException $e){
+			$message ='你没有登陆或者你的会话失效';
+			$type = 'error';
+		    return Response::json(array('message'=>$message,'type'=>$type),500);
+		}catch (Exception $e){
+			return Response::json(array('message'=>'服务器错误','type'=>'error'),500);
 		}
 	}
 }
