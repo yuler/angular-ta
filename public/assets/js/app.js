@@ -21,6 +21,10 @@ angular.module('siteApp', [
       controller:'UserCtrl',
       templateUrl:'templates/login.html',
     })
+    .when('/settings',{
+      controller:'UserCtrl',
+      templateUrl:'templates/users/edit.html',
+    })
     .when('/register',{
       controller:'UserCtrl',
       templateUrl:'templates/register.html',

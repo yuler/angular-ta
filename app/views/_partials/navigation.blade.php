@@ -1,12 +1,12 @@
 <div id="navigation" class="animated" ng-controller="NavCtrl">
-	<a href="javascript:void(0);" ng-class="{'active':silder_left}" ng-init="silder_left=false" ng-click="silder_left=!silder_left" class="sb-toggle-left" tipsy-w title="目录"><i class="fa fa-bars"></i></a>
+	<!-- <a href="javascript:void(0);" ng-class="{'active':silder_left}" ng-init="silder_left=false" ng-click="silder_left=!silder_left" class="sb-toggle-left" tipsy-w title="目录"><i class="fa fa-bars"></i></a> -->
 	<a href="javascript:void(0);" onclick="night()" tipsy-w title="黑夜"><i class="fa fa-moon-o"></i></a>
 	<a href="javascript:void(0);" onclick="day()" tipsy-w title="白天"><i class="fa fa-sun-o"></i></a>
-	<a href="javascript:void(0);" class="sb-toggle-right" tipsy-w title="用户"><i class="fa fa-user"></i></a>
+	<!-- <a href="javascript:void(0);" class="sb-toggle-right" tipsy-w title="用户"><i class="fa fa-user"></i></a> -->
 	<a href="javascript:void(0);" ng-click="home()" tipsy-w title="主页"><i class="fa fa-home"></i></a>
-	<a href="javascript:void(0);" ng-click="loginout()" tipsy-w title="退出"><i class="fa fa-sign-out"></i></a>
+	<!-- <a href="javascript:void(0);" ng-click="loginout()" tipsy-w title="退出"><i class="fa fa-sign-out"></i></a> -->
 	<a href="javascript:void(0);" ng-click="login()" tipsy-w title="登录"><i class="fa fa-sign-in"></i></a>
-	<a></a> 
+	<a href="javascript:void(0);" ng-click="settings()" tipsy-w title="设置"><i class="fa fa-cogs"></i></a>
 </div>
 
 <script type="text/javascript">

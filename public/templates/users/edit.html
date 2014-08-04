@@ -1,1 +1,47 @@
-edit.html
+<div id="user_edit" ng-hide="fake" class="animated fadeIn">
+	<h1><i class="fa fa-cogs">&nbsp;&nbsp;个人设置</i></h1>
+	<br>
+	<br>
+	<form ng-submit="postLogin()">
+		<div class="input-wrapper">
+			<label for="first_name"><h4>头像</h4></label>
+			<img src="/assets/img/avatar_default.png">
+			<a  href="javascript:void(0);" style="float:right;" onclick="$('#upload').trigger('click');" 
+			  class="button-rounded button-large glow button-flat">上传头像
+			</a>
+			<input type="file" ng-model="user.avatar" id="upload" ng-change="uploadAvatar()">
+		</div>
+		<div class="input-wrapper">
+			<label for="first_name"><h4>姓氏和名字</h4></label>
+			<div class="input-group">
+				<input id="first_name" type="text" ng-model="user.first_name" placeholder="姓氏" focus-me="true"
+				 tipsy-s title="姓氏">
+				 <input type="text" ng-model="user.last_name" placeholder="名字"
+				 tipsy-s title="名字">
+			 </div>
+		</div>
+		<div class="input-wrapper">
+			<label for="first_name"><h4>邮箱地址</h4></label>
+			<input type="email" ng-model="user.email" placeholder="请输入邮箱地址"
+			tipsy-s title="请输入邮箱地址" disabled>
+		</div>
+		<div class="input-wrapper">
+			<label for="first_name"><h4>昵称</h4></label>
+			<input type="password" ng-model="user.password" placeholder="请输入密码" 
+			ng-init="user.password='123'">
+		</div>
+		<div class="input-wrapper">
+			<label for="first_name"><h4>密码</h4></label>
+			<input type="email" ng-model="user.email" placeholder="请输入邮箱地址"
+			tipsy-s title="请输入邮箱地址" disabled>
+		</div>
+		<div class="input-wrapper">
+			<button type="submit"
+			class="button button-rounded button-large glow button-flat button-primary button-block">保存</button>
+		</div>
+		<div class="input-wrapper" style="text-align:right">
+			<a type="submit" href="javascript:history.go(-1);"
+			  class="button-rounded button-large glow button-flat"><i class="fa fa-hand-o-left"></i>&nbsp;&nbsp;返回</a>
+		</div>
+	</form>
+</div>

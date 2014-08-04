@@ -6,11 +6,10 @@ html,body,input,button
 	font-size: font-size
 	line-height: line-height
 .container
-	padding: 100px 10px
+	padding: 0 10px
 	width: auto
-	margin: 0 auto;
+	margin: 100px auto 0 auto
 	@media phone
-		padding: 100px 0px
 		width 700px;
 .float-left
 	float left
@@ -23,6 +22,10 @@ a.active,a:hover
 	color color-font-hover
 label:hover
 	cursor: pointer
+
+input[disabled]
+	cursor: not-allowed;
+	color:#cccccc
 	
 .fade.ng-hide-add,.fade.ng-hide-remove
 	-webkit-transition all linear 0.5s

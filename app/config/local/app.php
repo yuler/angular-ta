@@ -14,19 +14,6 @@ return array(
 	*/
 
 	'debug' => true,
-
 	'timezone' => 'Asia/Hong_Kong',
 
-	'mysql.host'     => 'localhost',
-	'mysql.database' => 'ta',
-	'mysql.username' => 'root',
-	'mysql.password' => '',
-
-	'email.host'       => 'smtp.exmail.qq.com',
-	'email.port'       => 465,
-	// 'email.from.address' => 'yule@trht.com.cn',
-	// 'email.form.name'  => 'TA',
-	'email.encryption' => 'ssl',
-	'email.username'   => 'yule@trht.com.cn',
-	'email.password'   => '123456a',
 );

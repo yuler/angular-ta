@@ -45,6 +45,9 @@ angular.module('controllers',[
 	$scope.login = function(){
 		$location.path('/login');
 	}
+	$scope.settings = function(){
+		$location.path('/settings');
+	}
 	$scope.logout = function(){
 		// AuthService.logout().success(function(){
 		// 	$location.path('/').replace();
@@ -88,6 +91,10 @@ angular.module('controllers',[
 				tipMsg(error.data);
 			}
 		);
+	}
+
+	$scope.uploadAvatar = function(){
+		alert($scope.avatar);
 	}
 
 	$scope.forget = function(){

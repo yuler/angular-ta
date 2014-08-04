@@ -1,13 +1,14 @@
 <div id="login" ng-hide="fake" class="animated fadeIn">
 	<form ng-submit="postLogin()">
 		<h1>用户登录</h1>
+		<br>
 		<div class="input-wrapper">
 			<input type="email" ng-model="user.email" placeholder="请输入邮箱地址" focus-me="true" 
-			ng-init="user.email='admin@admin.com'">
+			ng-init="user.email='393342914@qq.com'" tipsy-s title="请输入邮箱地址">
 			</div>
 		<div class="input-wrapper">
 			<input type="password" ng-model="user.password" placeholder="请输入密码" 
-			ng-init="user.password='1'">
+			ng-init="user.password='123'" tipsy-s title="请输入密码">
 		</div>
 		<div style="margin-top:30px;">
 			<input type="checkbox" id="remember">
