@@ -1,14 +1,26 @@
 <div id="user_edit" ng-hide="fake" class="animated fadeIn" data-ng-init="edit()">
-	<form ng-submit="postLogin()">
+	<form ng-submit="putUpdate()">
 		<h1><i class="fa fa-cogs"></i>&nbsp;&nbsp;个人设置</h1>
 		<br>
 		<div class="input-wrapper">
 			<label for="first_name"><h4>头像</h4></label>
-			<img src="/assets/img/avatar_default.png">
-			<a  href="javascript:void(0);" style="float:right;" onclick="$('#upload').trigger('click');" 
-			  class="button-rounded button-large glow button-flat">上传头像
-			</a>
-			<input type="file" ng-model="user.avatar" id="upload" ng-change="uploadAvatar()">
+			<div>
+				<img src="/assets/img/avatar_default.png" ng-src="{{user.extension.avatar}}">
+				<a href="javascript:void(0);" class="button-rounded button-large glow button-flat" style="float:right"
+					onclick="$('#uploadBtn input').trigger('click');">上传头像</a>
+				<div id="uploadBtn" ng-file-select="uploadAvatar($files)" ng-hide="true"></div>
+			</div>
+			<br>
+			<div style="border: 3px #cccccc dashed;
+				height: 100px;
+				border-radius: 5px;" 
+				ng-file-drop="uploadAvatar($files)" ng-file-drag-over-class="optional-css-class-name-or-function"
+			    ng-show="dropSupported">
+			    <div style="padding:20px 30px;">或者将图片拖拽此处，上传文件</div>
+			</div>
+			<div ng-file-drop-available="dropSupported=true" 
+			    ng-show="!dropSupported">不支持文件拖拽上传</div>
+			<!-- <button ng-click="upload.abort()">Cancel Upload</button> -->
 		</div>
 		<div class="input-wrapper">
 			<label for="first_name"><h4>姓氏和名字</h4></label>
@@ -26,20 +38,22 @@
 		</div>
 		<div class="input-wrapper">
 			<label for="password"><h4>密码</h4></label>
-			<input id="password" type="email" ng-model="user.email" placeholder="密码"
-			tipsy-s title="密码" disabled>
+			<a  href="javascript:void(0);" ng-click="postForget()"
+			  class="button-rounded button-large glow button-flat">发送重置修改密码
+			</a>
 		</div>
 		<div class="input-wrapper">
-			<label for="password"><h4>昵称</h4></label>
-			<input id="password" type="password" ng-model="user.password" placeholder="请输入密码" >
+			<label for="nickname"><h4>昵称</h4></label>
+			<input id="nickname" type="text" ng-model="user.extension.nickname" placeholder="昵称" tipsy-s title="个性签名" >
 		</div>
 		<div class="input-wrapper">
-			<label for="password"><h4>个性签名</h4></label>
-			<input id="password" type="password" ng-model="user.password" placeholder="请输入密码" >
+			<label for="signature"><h4>个性签名</h4></label>
+			<input id="signature" type="text" ng-model="user.extension.signature" placeholder="个性签名"
+			tipsy-s title="个性签名">
 		</div>
 		<div class="input-wrapper">
 			<label for="description"><h4>个人简介</h4></label>
-			<textarea id="description" ng-model="user.password" placeholder="个人简介"></textarea>
+			<textarea id="description" ng-model="user.extension.description" placeholder="个人简介" tipsy-s title="个性签名"></textarea>
 		</div>
 		<div class="input-wrapper">
 			<button type="submit"

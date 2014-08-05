@@ -14,6 +14,7 @@ function tipMsg(data){
 angular.module('controllers',[
 	'angular-loading-bar',
 	'ngAnimate',
+	'angularFileUpload',
 ])
 
 .controller('IndexCtrl',function($scope, $http, $timeout, cfpLoadingBar){
@@ -60,7 +61,7 @@ angular.module('controllers',[
 })
 
 //用户验证的控制器，登录，注册，重置密码。
-.controller('UserCtrl',function($scope,$http,$location,$routeParams,$timeout,cfpLoadingBar,UserServices){
+.controller('UserCtrl',function($scope,$http,$location,$routeParams,$timeout,$upload,cfpLoadingBar,UserServices){
 	//登陆连接和登陆
 	$scope.login = function(){
 		$location.path('/login');
@@ -100,7 +101,10 @@ angular.module('controllers',[
 		UserServices.forget($scope.user,
 			function(data){
 				tipMsg(data);
-				$location.path('/login');
+				//用户未登录，跳转
+				if(!$scope.user.id){
+					$location.path('/login');
+				}
 			},
 			function(error){
 				tipMsg(error.data);
@@ -120,11 +124,12 @@ angular.module('controllers',[
 		UserServices.resetPassword($scope.user,
 			function(data){
 				tipMsg(data);
-				$location.path('/login');
+				$location.url('/login');
 			},
 			function(error){
 				tipMsg(error.data);
 				console.log(error);
+				$location.url('/login');
 			}
 		);
 	}
@@ -141,12 +146,38 @@ angular.module('controllers',[
 			}
 		);
 	}
-	//上传头像
-	$scope.uploadAvatar = function(){
-		alert($scope.avatar);
+	$scope.putUpdate = function(){
+		UserServices.update($scope.user.id,$scope.user,
+			function(data){
+				tipMsg(data);
+			},
+			function(error){
+				tipMsg(error.data);
+				console.log(error);
+			}
+		)
 	}
-
-
+	//上传头像
+	$scope.uploadAvatar = function($files) {
+	  //$files: an array of files selected, each file has name, size, and type.
+	  for (var i = 0; i < $files.length; i++) {
+	    var file = $files[i];
+	  	console.log(file);
+	    $scope.upload = $upload.upload({
+	      url: '/users/upload-avatar', 
+	      method: 'POST',
+	      data: {avatar: file,userId : $scope.user.id},
+	    }).progress(function(evt) {
+	    	console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+	    }).success(function(data, status, headers, config) {
+	    	tipMsg(data);
+	    	console.log(data.file_path);
+	    	$scope.user.extension.avatar = data.file_path;
+	    }).error(function(error){
+	    	tipMsg(error);
+	    });
+	  }
+	};
 
 	$scope.start = function() {
 	  cfpLoadingBar.start();

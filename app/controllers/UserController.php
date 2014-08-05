@@ -206,7 +206,7 @@ class UserController extends BaseController {
 	public function getCurrentUser(){
 		try
 		{
-		    $user = Sentry::getUser();
+		    $user = User::with('extension')->find(Sentry::getUser()['id']);
 		    return Response::json($user);
 		}catch (Cartalyst\Sentry\Users\UserNotFoundException $e){
 			$message ='你没有登陆或者你的会话失效';
@@ -216,4 +216,80 @@ class UserController extends BaseController {
 			return Response::json(array('message'=>'服务器错误','type'=>'error'),500);
 		}
 	}
+
+	//修改用户信息
+	public function update(){
+		try {
+			//开启事物
+			DB::transaction(function(){
+				$user = User::find(Input::get('id'));
+				$user->first_name = Input::get('first_name');
+				$user->last_name = Input::get('last_name');
+				if(!$user->extension){
+					$userExtension = new UserExtension;
+					$userExtension->user_id = $user['id'];
+					$userExtension->nickname = isset( Input::get('extension')['nickname']) ? Input::get('extension')['nickname'] : null;
+					$userExtension->signature = isset( Input::get('extension')['signature']) ? Input::get('extension')['signature'] : null;
+					$userExtension->description = isset( Input::get('extension')['description']) ? Input::get('extension')['description'] : null;
+					$userExtension->save();
+				}
+				$user->extension->nickname = isset( Input::get('extension')['nickname']) ? Input::get('extension')['nickname'] : null;
+				$user->extension->signature = isset( Input::get('extension')['signature']) ? Input::get('extension')['signature'] : null;
+				$user->extension->description = isset( Input::get('extension')['description']) ? Input::get('extension')['description'] : null;
+				$user->push();
+			});
+			return Response::json(array('message'=>'个人设置修改成功','type'=>'success'));
+		}catch (Exception $e) {
+			return $e;
+			return Response::json(array('message'=>'服务器错误','type'=>'error'),500);
+		}
+	}
+
+	//上传头像
+	public function postUploadAvatar(){
+		try {
+			//开启事物
+			DB::transaction(function() use ($paymentGatewayTransaction){
+			    $file = Input::file('avatar');
+			    $diskPath = $_SERVER['DOCUMENT_ROOT'].'/upload/avatar/'.date('Ymd',time());
+			    $serverPath = asset('/upload/avatar').'/'.date('Ymd',time()).'/';
+			    $size = $file->getSize();
+			    if($size > 500*1024){
+			    	return Response::json(array('message'=>'上传文件不能大于500Kb','type'=>'warning'),500);
+			    }
+			    $mime = Input::file('avatar')->getMimeType();
+			    if(!in_array($mime,array('image/jpeg','image/png','image/gif','image/bmp'))){
+			    	return Response::json(array('message'=>'上传文件类型错误','type'=>'warning'),500);
+			    }
+			    if(!is_dir($diskPath )) {
+			   		mkdir($diskPath);
+			    }
+			    $name = date('YmdHis',time()).rand(0,999).'.'.$file->getClientOriginalExtension();
+			   	//保存数据到数据库
+			    $userExtension = new UserExtension;
+			    $userExtension->user_id =  Input::get('userId');
+			    $userExtension->avatar = $serverPath.$name;
+			    $userExtension->save();
+			    //保存图片到服务器
+			    $file->move($diskPath,$name);
+		    });
+		    return Response::json(array('message'=>'上传头像成功','type'=>'success','file_path'=>$serverPath.$name));
+		} catch (Exception $e) {
+			return $e;
+			return Response::json(array('message'=>'服务器错误','type'=>'error'),500);
+		}
+	}
+
+	public function desctroy(){
+
+	}
+
+	public function edit(){
+
+	}
+
+	public function store(){
+
+	}
+
 }

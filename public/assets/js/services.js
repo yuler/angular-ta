@@ -58,11 +58,15 @@ angular.module('services', ['ngResource'])
     	forget :{url:'/users/forget',method:'post'},
     	resetPassword :{url:'/users/reset-password',method:'post'},
     	currentUser:{url:'/users/current-user',method:'get'},
-    	edit : {method:'get'},
-    	index : {method:'GET'},
-    	show : {method:'GET'},
-		store : {method:'POST', params:{entryId:''}, isArray:true},
-		update: {method:'PUT', params: {entryId: '@entryId'}},
-		destroy: {method:'DELETE'}
+		update: {method:'PUT', params: {id: '@id'}},
+    	query: {method:'GET', params:{entryId:''}, isArray:true},
+		post: {method:'POST'},
+		remove: {method:'DELETE'},
+		// update: {method:'put'},
+  //   	edit : {method:'get'},
+  //   	index : {method:'GET'},
+  //   	show : {method:'GET'},
+		// store : {method:'POST', params:{entryId:''}, isArray:true},
+		// destroy: {method:'DELETE'}
     });
  })

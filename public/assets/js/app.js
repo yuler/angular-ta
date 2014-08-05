@@ -1,9 +1,9 @@
 angular.module('siteApp', [
 	'ngRoute', 
 	'controllers',
-    'services',
-    'directives',
-    'filters'
+  'services',
+  'directives',
+  'filters',
 ])
 
 .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
@@ -20,6 +20,7 @@ angular.module('siteApp', [
     .when('/login',{
       controller:'UserCtrl',
       templateUrl:'templates/login.html',
+      // reloadOnSearch: false,
     })
     .when('/settings',{
       controller:'UserCtrl',

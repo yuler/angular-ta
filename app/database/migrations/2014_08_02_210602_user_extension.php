@@ -12,13 +12,16 @@ class UserExtension extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('user_extension', function($table)
+		Schema::create('users_extensions', function($table)
 			{
-				$table->increments('id');
-				$table->integer('user_id')->unsigned()->nullable();
-				$table->string('signature')->default(null);
-				$table->string('description')->default(0);
-				$table->string('avatar')->default(0);
+				$table->increments('id')->unsigned();
+				$table->integer('user_id')->unsigned();
+				$table->string('nickname')->nullable();
+				$table->string('signature')->nullable();
+				$table->string('description')->nullable();
+				$table->string('avatar')->nullable();
+				$table->timestamp('created_at')->nullable();
+				$table->timestamp('updated_at')->nullable();
 			});
 	}
 
@@ -29,7 +32,7 @@ class UserExtension extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('user_extension');
+		Schema::drop('users_extensions');
 	}
 
 }

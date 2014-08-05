@@ -17,6 +17,7 @@ Route::get('/', array('as' => 'site.index', function() {return View::make('index
 
 //cookie
 Route::controller('cookies', 'CookieController');
+Route::resource('users', 'UserController',array('only' => array('update')));
 Route::controller('users', 'UserController');
 
 

@@ -8,7 +8,9 @@
 <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/animate.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/buttons.css')}}">
 
+<script type="text/javascript" src="{{ asset('/assets/js/lib/angular-file-upload-shim.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/assets/js/lib/angular.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/assets/js/lib/angular-file-upload.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/assets/js/lib/angular-resource.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/assets/js/lib/angular-route.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/assets/js/lib/angular-animate.min.js') }}"></script>
