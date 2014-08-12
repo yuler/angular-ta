@@ -1,0 +1,78 @@
+// @import 'nib'
+global-reset();
+
+color-line = #cccccc
+color-background = white
+color-font = #555555
+color-font-hover = #008cff
+color-theme = #00e0ff
+color-theme-shadow = #0399ad
+
+@import "_base/variable"
+
+html,body
+	margin: 0
+	color color-font
+	font-family: font-default
+	font-size: font-size
+	line-height: line-height
+
+.container
+	width: auto
+	padding 0 15px;
+	padding-top 50px;
+	@media phone
+		width 700px;
+		margin 0 auto;
+	header,footer
+		text-align: center;
+		@media phone
+			padding: 0px 50px;
+		a
+			text-decoration: none
+			color color-font
+	header
+		font-size 16px;
+	footer
+		font-size 14px
+	#content
+		height 52px;
+		background-color: color-line
+		border-radius: 5px;
+		@media phone
+			margin: 0 50px
+		form
+			padding 7px 0px
+			margin 30px;
+			@media phone
+				margin 0 50px
+			input
+				width 45%
+				@media phone
+					width 300px - 22px
+				float: left
+				font-size 14px
+				padding 8px 10px
+				font-family font-default
+				color color-font
+				border color-line 1px solid
+			input:focus
+				border #66afe9 1px solid
+				outline none
+				-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+					box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+			button
+				margin 2px 0px
+				width 45%;
+				height 34px
+				font-size 14px
+				float: left
+				@media phone
+					width 200px
+	form:after
+		content: "."
+		display: block
+		height: 0
+		clear: both
+		visibility: hidden
+

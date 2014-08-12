@@ -64,9 +64,9 @@ class UserController extends BaseController {
 					'email' => Input::get('email'),
 					'password' => Input::get('password')
 				));
-				$activationCode = $user->getActivationCode();
 
 				// 发送验证邮箱邮件
+				$activationCode = $user->getActivationCode();
 				$data = array(
 					'user'=>$user,
 					'activationCode' => $activationCode
