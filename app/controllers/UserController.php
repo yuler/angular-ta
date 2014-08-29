@@ -51,6 +51,7 @@ class UserController extends BaseController {
 		}catch (Exception $e){
 			return Response::json(array('message'=>'服务器错误','type'=>'error'),500);
 		}
+
 	}
 
 	//注册用户

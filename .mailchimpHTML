@@ -1,0 +1,132 @@
+
+// opt-in confirmation email
+
+<div style="text-align: center;"><strong><span style="color:#35393B; font-size:38px">XXXXX</span></strong></div>
+
+
+
+<div style="text-align: center;">
+<div style="border-top: 2px solid #eeeeee;max-width:600px;margin:0px auto;">&nbsp;</div>
+<span style="color:#7d878a; font-size:16px; font-weight:normal; text-align:center">请点击下面的链接确认登记</span><br />
+<br />
+<a class="button" href="http://107.us8.list-manage.com/subscribe/confirm?u=ed515e1418c453f14a7104c91&id=e690bdac7a&e=*|UNIQID|*&orig-lang=1" style="background-color:#eeeeee;color:#7d878a;"><span style="background-color:#eeeeee; color:#7d878a; font-size:18px">请点击这里，确认登记注册</span></a>
+<style type="text/css">table{
+	width : 100%;
+    max-width : 700px;
+}
+table td,#templateBody td{
+  padding-left : 0px;
+  padding-right : 0px;
+}
+.bodyContent > a{
+       display : none ! important;
+    }
+</style>
+</div>
+
+
+
+<p style="text-align: center;color:#7d878a;"><span style="color:#7d878a; font-size:12px">如果你错误的收到本电子邮件，只需将其删除即可。如果你不点击上面的链接，就不会登记。<br />
+<span style="color:#7d878a; font-size:12px; text-align:center">如果对本事宜由任何问题，请联系：</span><a href="mailto:*|LIST:ABUSE_EMAIL|*" style="text-align: center;">*|LIST:ABUSE_EMAIL|*</a></span> &nbsp;</p>
+
+<div style="border-top: 2px solid #eeeeee;max-width:600px;margin:0px auto;">&nbsp;</div>
+
+<p style="text-align: center;color:#999999;"><span style="color:#999999; font-size:14px">XX &nbsp;| &nbsp;XX &nbsp;| &nbsp;XX<br />
+Copyright &copy; XX 2014 All rights reserved.<br />
+Updated on 2014-8-8</span></p>
+
+
+
+// confirmation thank you page
+
+<div style="text-align: center;"><strong><span style="color:#35393B; font-size:38px">XXXXX</span></strong></div>
+
+
+<div style="text-align: center;">
+<div style="border-top: 2px solid #eeeeee;max-width:600px;margin:0px auto;">&nbsp;</div>
+<span style="font-size:16px; text-align:center;color:#7d878a;">登记邮箱已被确认</span><br />
+<br />
+<a class="button tpl-content-highlight" href="http://114.215.149.143:2368/" style="background-color:#eeeeee" target="_blank"><span class="tpl-content-highlight" style="background-color:#eeeeee;color:#7d878a;font-size:18px;">请点击这里，浏览我们的博客</span></a></div>
+<style type="text/css">.bodyContent>a,.bodyContent>span{
+    display : none
+}
+</style>
+
+
+<p style="text-align: center;"><span style="color:#7d878a; font-size:12px">感谢你注册登记！我们将会在每周五把一周内乐聚的动态信息及文章发送至您的邮箱<br />
+如果对本事宜由任何问题，请联系：<a href="mailto:*|LIST:ABUSE_EMAIL|*">*|LIST:ABUSE_EMAIL|*</a></span> &nbsp;</p>
+<div style="border-top: 2px solid #eeeeee;max-width:600px;margin:0px auto;">&nbsp;</div>
+<p style="text-align: center;"><span style="color:#999999; font-size:14px">XX &nbsp;| &nbsp;XX &nbsp;| &nbsp;XX </span><br />
+<span style="color:#999999; font-size:14px">Copyright&nbsp; &copy; &nbsp;XX 2014 All rights reserved.</span><br />
+<span style="color:#999999; font-size:14px">Updated on 2014-8-8</span> &nbsp;</p>
+
+
+
+
+// unsubscribe form page
+
+<div style="text-align: center;"><strong><span style="color:#35393B; font-size:38px">XXXXX</span></strong></div>
+
+
+<div style="text-align: center;">
+<div style="border-top: 2px solid #eeeeee;max-width:600px;margin:0px auto;">&nbsp;</div>
+<span style="color:#7d878a; font-size:16px; font-weight:normal; text-align:center">请核对一下邮箱地址点击取消注册</span><br />
+
+<form id="" action="http://107.us8.list-manage1.com/unsubscribe/post" method="POST">
+    <input type="hidden" name="u" value="ed515e1418c453f14a7104c91">
+    <input type="hidden" name="id" value="e690bdac7a">
+    <input type="hidden" name="orig-lang" value="1">
+	<label for="email-address">电子邮件地址</label>
+	<div class="field-group">
+		<input type="text" name="EMAIL" value="" id="email-address">
+        
+	</div>
+	<br>
+	<input class="button" type="submit" value="取消订阅">
+</form>
+
+<p style="text-align: center;color:#7d878a;"><span style="color:#7d878a; font-size:12px">
+如果你错误地进入到该页面，只需将其关闭即可。如果您不点击上面的按钮，就不会取消。<br />
+<span style="color:#7d878a; font-size:12px; text-align:center">如果对本事宜由任何问题，请联系：</span><a href="mailto:*|LIST:ABUSE_EMAIL|*" style="text-align: center;">*|LIST:ABUSE_EMAIL|*</a></span> &nbsp;</p>
+<div style="border-top: 2px solid #eeeeee;max-width:600px;margin:0px auto;">&nbsp;</div>
+<p style="text-align: center;"><span style="color:#999999; font-size:14px">XX &nbsp;| &nbsp;XX &nbsp;| &nbsp;XX </span><br />
+<span style="color:#999999; font-size:14px">Copyright&nbsp; &copy; &nbsp;XX 2014 All rights reserved.</span><br />
+<span style="color:#999999; font-size:14px">Updated on 2014-8-8</span> &nbsp;</p>
+
+<a class="button tpl-content-highlight" href="http://114.215.149.143:2368/" style="background-color:#eeeeee" target="_blank"><span class="tpl-content-highlight" style="background-color:#eeeeee;color:#7d878a;font-size:18px;">请点击这里，浏览我们的博客</a>
+</div>
+<script type="text/javascript">
+	function demo(){
+		alert('xx');
+	}    
+</script>
+<style type="text/css">
+table{
+	width : 100%;
+    max-width : 700px;
+}
+table td,#templateBody td{
+  padding-left : 0px;
+  padding-right : 0px;
+}
+.bodyContent > h2{
+	display : none ! important;
+}
+#mc-unsubscribe-form{
+
+}
+.bodyContent>a,.bodyContent>span{
+    display : none ! important;
+}
+</style>
+
+
+
+
+
+
+
+
+
+//
+http://107.us8.list-manage.com/unsubscribe?u=ed515e1418c453f14a7104c91&id=e690bdac7a
