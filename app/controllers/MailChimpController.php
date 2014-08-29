@@ -10,7 +10,7 @@ class MailChimpController extends BaseController {
 	
 	*/
 
-	function addSubscriber(){
+	function postAddSubscriber(){
 		$MailChimp = new \Drewm\MailChimp('a22d86c9b3f05b734e19a257ce061364-us8');
 		$result = $MailChimp->call('lists/subscribe', array(
 		                'id'                => 'e690bdac7a',
@@ -23,4 +23,6 @@ class MailChimpController extends BaseController {
 		            ));
 		return $result;
 	}
+
+
 }

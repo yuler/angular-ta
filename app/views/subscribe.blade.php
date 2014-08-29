@@ -34,7 +34,7 @@
             $('#subscribe_loadding').removeClass('hide');
             $.ajax({
               type: "POST",
-              url: "/PushMailController/addSubscriber",
+              url: "/mailChimps/add-subscriber",
               data: "email="+$("input[name='email']").val(),
               success: function(data){
                 $("input[name='email']").val('');

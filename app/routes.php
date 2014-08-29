@@ -15,6 +15,9 @@
 
 // Route::get('/activate/{activationCode}',array('as' => 'site.activate','uses' => 'UserController@activate'));
 
+//root
+Route::get('/',function(){ return View::make('subscribe'); });
+
 //cookie
 Route::controller('cookies', 'CookieController');
 Route::resource('users', 'UserController',array('only' => array('update')));
@@ -22,8 +25,8 @@ Route::controller('users', 'UserController');
 
 
 //MailChimp 邮件订阅
-Route::post('/PushMailController/addSubscriber','MailChimpController@addSubscriber');
-Route::get('/',function(){ return View::make('down'); });
+
+Route::controller('mailChimps', 'MailChimpController');
 
 //邮件模板测试
 Route::get('/mail',function(){ return View::make('mail'); });
