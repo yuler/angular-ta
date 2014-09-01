@@ -54,6 +54,21 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+//MailChimp  邮件验证
+Route::filter('checkEmailFormMailChimp',function(){
+	if(!Input::has('email')){
+		return View::make('error');
+	}
+	$MailChimp = new \Drewm\MailChimp('a22d86c9b3f05b734e19a257ce061364-us8');
+	$result = $MailChimp->call('lists/member-info', array(
+        'id'            => 'e690bdac7a',
+        'emails'        => array(array('email'=>Input::get('email'))),
+    ));
+	if(!empty($result['errors'])){
+		return View::make('error');
+	}
+});
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter

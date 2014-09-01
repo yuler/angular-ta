@@ -12,11 +12,18 @@
 */
 
 // Route::get('/', array('as' => 'site.index', function() {return View::make('index'); }));
-
 // Route::get('/activate/{activationCode}',array('as' => 'site.activate','uses' => 'UserController@activate'));
 
 //root
-Route::get('/',function(){ return View::make('subscribe'); });
+// Route::get('/',function(){ return Redirect::to('http://subscribe.lifengchai.com/welcome'); });
+Route::get('/',function(){ return Redirect::to('/subscribe'); });
+Route::get('/subscribe',function(){ return View::make('subscribe.addSubscribe'); });
+Route::get('/subscribe/thank-you', function() { return View::make('subscribe.thankYou'); });
+Route::group(array('before'=>'checkEmailFormMailChimp','prefix'=>'subscribe'),function(){
+    Route::get('/unsubscribe', function() { return View::make('subscribe.unsubscribe'); });
+    Route::get('/profile', function() { return View::make('subscribe.profile'); });
+});
+
 
 //cookie
 Route::controller('cookies', 'CookieController');
@@ -30,3 +37,12 @@ Route::controller('mailChimps', 'MailChimpController');
 
 //邮件模板测试
 Route::get('/mail',function(){ return View::make('mail'); });
+
+
+// Route::group(array('domain' => 'subscribe.lifengchai.com'), function()
+// {
+// 	   Route::get('/welcome', function(){ return View::make('subscribe.addSubscribe'); });
+//     Route::get('/thank-you', function() { return View::make('subscribe.thankYou'); });
+//     Route::get('/unsubscribe', function() { return View::make('subscribe.unsubscribe'); });
+//     Route::get('/profile', function() { return View::make('subscribe.profile'); });
+// });
