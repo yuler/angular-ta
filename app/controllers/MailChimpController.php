@@ -41,9 +41,9 @@ class MailChimpController extends BaseController {
 	function postUnsubscribeReason(){
 		$email = Input::get('email');
 		$reason = Input::get('reason');
-		$path = base_path().'\public\log\unsubscribeReason.log';
+		$path = base_path().'\\public\\log\\unsubscribeReason.log';
 		$fopen = fopen($path,'a');
-		fwrite($fopen,$email.'      '.$reason."\r\n");
+		fwrite($fopen,$email.'      '.$reason.'      '.date('Y-m-d H:i:s')."\r\n");
 		fclose($fopen);
 	}
 
@@ -58,14 +58,14 @@ class MailChimpController extends BaseController {
 		return $result;
 	}
 
-	function getCheckEmail(){
-		$MailChimp = new \Drewm\MailChimp($this->APIkey);
-		$result = $MailChimp->call('lists/member-info', array(
-		                'id'           => $this->id,
-		                'emails'        => array(array('email'=>'yule@trht.com.cn')),
-		            ));
-		return $result;
-	}
+	// function getCheckEmail(){
+	// 	$MailChimp = new \Drewm\MailChimp($this->APIkey);
+	// 	$result = $MailChimp->call('lists/member-info', array(
+	// 	                'id'           => $this->id,
+	// 	                'emails'        => array(array('email'=>'yule@trht.com.cn')),
+	// 	            ));
+	// 	return $result;
+	// }
 
 	
 

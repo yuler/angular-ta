@@ -45,7 +45,7 @@
                 success: function(data){
                 	if(data.status == 'error'){
                 		if(data.name="Email_NotExists"){
-                			$('#alert').html("你的邮箱并没有注册我们的服务。");
+                			$('#alert').html("你的邮箱已经取消过注册。");
 	                	}else{
 	                		$('#alert').html("服务器异常...");
 	                		
