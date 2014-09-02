@@ -87,7 +87,7 @@
 				<input type="text" name="email" value="{{ Input::get('email') }}" class="hide">
 				<input type="text" name="newEmail" style="height:36px;font-size:18px;padding-left:15px;width:250px;">
 				<button class="button" style="background-color:#eeeeee" id="unsubscribeBtn"><span style="background-color:#eeeeee;color:#7d878a;font-size:18px;">更新邮箱</span></button>
-				<a class="button hide" style="background-color:#eeeeee" id="unsubscribeLoading"><span style="background-color:#eeeeee;color:#7d878a;font-size:18px;"><i class="fa fa-spin fa-spinner"></i>  正在处理</span></a>
+				<a class="button hide" style="background-color:#eeeeee" id="unsubscribeLoading"><span style="background-color:#eeeeee;color:#7d878a;font-size:18px;"><i class="fa fa-spin fa-spinner"></i>  正在处理...</span></a>
 				<br /><br />
 				<p style="text-align: center;">
 					<span style="color:#7d878a; font-size:12px">如果您错误的进入到该页面，只需将其关闭即可。如果您不点击上面的按钮，就不会取消。<br />

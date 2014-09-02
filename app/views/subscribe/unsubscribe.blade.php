@@ -65,18 +65,25 @@
             });
 		});
 		$('#reasonBtn').click(function(event) {
+			$('#reasonBtn').addClass('hide');
+			$('#reasonLoadingBtn').removeClass('hide');
 			$.ajax({
                 type: "POST",
                 url: "/mailChimps/unsubscribe-reason",
                 data: "email="+$("input[name='email']").val()+"&"+$("input[name='reason']").serialize(),
                 success: function(data){
                 	$('#alert').html("非常感谢你的意见和反馈。");
+                	$('#reasonLoadingBtn').addClass('hide');
+					$('#reasonBtn').removeClass('hide');
                 },
                 error:function(data){
                 	console.log(data);
                 	$('#alert').html("服务器异常...");
+                	$('#reasonLoadingBtn').addClass('hide');
+					$('#reasonBtn').removeClass('hide');
                 }
             });
+            
 		});
 	})
 
@@ -95,7 +102,7 @@
 			<br /><br />
 			<input type="email" name="email" style="height:36px;font-size:18px;padding-left:15px;width:250px;" value="{{ Input::get('email') }}" disabled>
 			<a class="button" style="background-color:#eeeeee" id="unsubscribeBtn"><span style="background-color:#eeeeee;color:#7d878a;font-size:18px;">取消注册</span></a>
-			<a class="button hide" style="background-color:#eeeeee" id="unsubscribeLoading"><span style="background-color:#eeeeee;color:#7d878a;font-size:18px;"><i class="fa fa-spin fa-spinner"></i>  正在处理</span></a>
+			<a class="button hide" style="background-color:#eeeeee" id="unsubscribeLoading"><span style="background-color:#eeeeee;color:#7d878a;font-size:18px;"><i class="fa fa-spin fa-spinner"></i>  正在处理...</span></a>
 			<br /><br />
 			<p style="text-align: center;">
 				<span style="color:#7d878a; font-size:12px">如果你错误的进入到该页面，只需将其关闭即可。如果你不点击上面的按钮，就不会取消。<br />
@@ -110,9 +117,8 @@
 			<input type="radio" name="reason" id="reason_1" value="我不希望再收到这些邮件">&nbsp;&nbsp;&nbsp;&nbsp;<label for="reason_1" onMouseOver="this.style.cursor = 'pointer' " style="font-size:14px; color:#999999;">我不希望再收到这些邮件</label><br><br>
 			<input type="radio" name="reason" id="reason_2" value="我误操作注册了这个服务">&nbsp;&nbsp;&nbsp;&nbsp;<label for="reason_2" onMouseOver="this.style.cursor = 'pointer' " style="font-size:14px; color:#999999;">我误操作注册了这个服务</label><br><br>
 			<input type="radio" name="reason" id="reason_3" value="我不喜欢这个邮件的内容">&nbsp;&nbsp;&nbsp;&nbsp;<label for="reason_3" onMouseOver="this.style.cursor = 'pointer' " style="font-size:14px; color:#999999;">我不喜欢这个邮件的内容</label><br><br>
-			<a class="button tpl-content-highlight" style="background-color:#eeeeee" id="unsubscribeBtn">
-				<span class="tpl-content-highlight" style="background-color:#eeeeee;color:#7d878a;font-size:18px;" id="reasonBtn">现在提交</span>
-			</a>
+			<a class="button" style="background-color:#eeeeee" id="reasonBtn"><span style="background-color:#eeeeee;color:#7d878a;font-size:18px;">现在提交</span></a>
+			<a class="button hide" style="background-color:#eeeeee" id="reasonLoadingBtn"><span style="background-color:#eeeeee;color:#7d878a;font-size:18px;"><i class="fa fa-spin fa-spinner"></i>  正在处理...</span></a>
 		</div>
 		<br />
 			<div id="alert" style="font-size:14px;color:#7d878a;"></div>

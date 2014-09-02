@@ -31,7 +31,7 @@ class MailChimpController extends BaseController {
 		$result = $MailChimp->call('lists/unsubscribe', array(
 		                'id'                => $this->id,
 		                'email'             => array('email'=>Input::get('email')),
-		                'delete_member'     => false,
+		                'delete_member'     => true,
 		                'send_goodbye'      => true,
 		                'send_notify'  		=> true,
 		            ));
@@ -41,7 +41,7 @@ class MailChimpController extends BaseController {
 	function postUnsubscribeReason(){
 		$email = Input::get('email');
 		$reason = Input::get('reason');
-		$path = base_path().'\\public\\log\\unsubscribeReason.log';
+		$path = public_path().'/log/unsubscribeReason.log';
 		$fopen = fopen($path,'a');
 		fwrite($fopen,$email.'      '.$reason.'      '.date('Y-m-d H:i:s')."\r\n");
 		fclose($fopen);
