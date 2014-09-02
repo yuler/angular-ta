@@ -38,7 +38,7 @@
 		<br />
 		<span style="font-size:16px; text-align:center;color:#7d878a;">登记邮箱已被确认</span><br />
 		<br />
-		<a class="button tpl-content-highlight" href="http://114.215.149.143:2368/" style="background-color:#eeeeee" target="_blank"><span class="tpl-content-highlight" style="background-color:#eeeeee;color:#7d878a;font-size:18px;">请点击这里，浏览我们的博客</span></a>
+		<a class="button tpl-content-highlight" href="http://106.187.102.19:2368/" style="background-color:#eeeeee" target="_blank"><span class="tpl-content-highlight" style="background-color:#eeeeee;color:#7d878a;font-size:18px;">请点击这里，浏览我们的博客</span></a>
 		<p style="text-align: center;"><span style="color:#7d878a; font-size:12px">感谢你注册登记！我们将会在每周五把一周内乐聚的动态信息及文章发送至您的邮箱<br />
 		如果对本事宜由任何问题，请联系：<a href="mailto:service@fffffun.com">service@fffffun.com</a></span> &nbsp;</p>
 		<div style="border-bottom: 2px solid #eeeeee;max-width:600px;margin:0px auto;">&nbsp;</div>
